@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   return sequelize.define(
-    "Actores",
+    "Actors",
     {
       id: {
         type: DataTypes.INTEGER,
@@ -11,11 +11,10 @@ module.exports = (sequelize, DataTypes) => {
       last_name: DataTypes.STRING(100),
       rating: DataTypes.DECIMAL(3, 1),
       favorite_movie_id: DataTypes.INTEGER.UNSIGNED,
-
     },
     {
       tableName: "actors",
-      underscored: true
+      underscored: true,
     }
   );
 };

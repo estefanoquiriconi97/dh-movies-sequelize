@@ -2,57 +2,68 @@ const db = require("../database/models");
 const Op = db.Sequelize.Op;
 
 const moviesController = {
-  list: (req, res) => {
-    db.Peliculas.findAll()
-      .then((peliculas) => {
-        res.render("moviesList", {
-          movies: peliculas,
-        });
-      })
-      .catch((err) => res.send(err));
+  list: async (req, res) => {
+    try {
+      const movies = await db.Movies.findAll();
+      res.render("moviesList", { movies });
+    } catch (error) {
+      res.send(error);
+    }
   },
 
-  detail: (req, res) => {
-    db.Peliculas.findByPk(req.params.id)
-      .then((pelicula) => {
-        if (pelicula != null) {
-          return res.render("moviesDetail", {
-            movie: pelicula,
-          });
-        } else {
-          return res.send("<h1>No existe</h1>");
-        }
-      })
-      .catch((err) => res.send(err));
+  detail: async (req, res) => {
+    try {
+      const movie = await db.Movies.findByPk(req.params.id);
+      if (movie) {
+        res.render("moviesDetail", { movie });
+      } else {
+        return res.send("<h1>No existe</h1>");
+      }
+    } catch (error) {
+      res.send(error);
+    }
   },
 
-  new: (req, res) => {
-    db.Peliculas.findAll({
-      order: [["release_date", "DESC"]],
-    })
-      .then((peliculas) => {
-        res.render("newestMovies", {
-          movies: peliculas,
-        });
-      })
-      .catch((err) => res.send(err));
+  new: async (req, res) => {
+    try {
+      const movies = await db.Movies.findAll({
+        order: [["realease_date", "DESC"]],
+        limit: 5,
+      });
+      res.render("newestMovies", { movies });
+    } catch (error) {
+      res.send(error);
+    }
   },
 
-  recommended: (req, res) => {
-    db.Peliculas.findAll({
-        order : [
-            ["rating", "DESC"]
-            ["release_date", "DESC"]
+  recommended: async (req, res) => {
+    try {
+      const movies = await db.Movies.findAll({
+        order: [
+          ["rating", "DESC"],
+          ["release_date", "DESC"],
         ],
-        limit : 5
-    })
-      .then((peliculas) => {
-        res.render("recommendedMovies",{
-            movies : peliculas
-        })
-      })
-      .catch((err) => res.send(err));
+        limit: 5,
+      });
+      res.render("recommendedMovies", { movies });
+    } catch (error) {
+      res.send(error);
+    }
   },
+
+  toyStoryMovies: async (req, res) => {
+    try {
+      const movies = await db.Movies.findAll({
+        where: {
+          title: { [Op.like]: "%Toy Story%" },
+        },
+      });
+      res.json(movies);
+    } catch (error) {
+      res.send(error);
+    }
+  },
+
 };
 
 module.exports = moviesController;
