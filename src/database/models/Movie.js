@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       release_date : DataTypes.DATE,
       length : DataTypes.INTEGER,
       genre_id : DataTypes.INTEGER
-
     },
     {
       tableName: "movies",

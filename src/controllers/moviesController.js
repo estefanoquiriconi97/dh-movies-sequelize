@@ -64,6 +64,23 @@ const moviesController = {
     }
   },
 
+  create: (req, res) => {
+    res.render("moviesCreate");
+  },
+
+  save: async (req, res) => {
+    const newMovie = {
+      title : req.body.title,
+      rating : req.body.rating,
+      awards : req.body.awards,
+      release_date : req.body.release_date,
+      length : req.body.length,
+      genre_id : req.body.genre_id,
+    }
+    await db.Movies.create(newMovie);
+
+    res.redirect('/');
+  },
 };
 
 module.exports = moviesController;

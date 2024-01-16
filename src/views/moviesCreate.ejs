@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Película</title>
+    <link rel='stylesheet' href='/css/style.css' />
+
+</head>
+<body>
+    <figure>
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+    </figure>
+    <h1>Crear Película</h1>    
+    <br>
+    <form action="/movies/create" method="post">
+        <input type="text" name="title" placeholder="title">
+        <br>
+        <input type="number" name="rating" placeholder="rating">
+        <br>
+        <input type="number" name="awards" placeholder="awards">
+        <br> 
+        <input type="date" name="release_date" placeholder="release_date">
+        <br>
+        <input type="number" name="length" placeholder="length">
+        <br>
+        <select name="genre_id">
+            <option value="1">Comedia</option>
+            <option value="2">Terror</option>
+        </select>
+        <br>
+        <br>
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>
