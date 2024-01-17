@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalles del Actor</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/actors.css" />
+  </head>
+
+  <body class="container">
+    <figure class="logo">
+      <img src="/img/logo-DH.png" alt="Logo Digital House" />
+    </figure>
+    <h1 class="heading">DETALLES DEL ACTOR</h1>
+
+    <% if (actor) { %>
+    <div class="actor-details">
+      <h2><%= actor.first_name %> <%= actor.last_name %></h2>
+      <p>Rating: <%= actor.rating %></p>
+      <p>Fecha de Creación: <%= actor.createdAt %></p>
+      <p>Fecha de Actualización: <%= actor.updatedAt %></p>
+
+      <a href="/actors">Volver al listado de actores</a>
+    </div>
+    <% } else { %>
+    <p>No se encontraron detalles para este actor.</p>
+    <a href="/actors">Volver al listado de actores</a>
+    <% } %>
+
+  </body>
+</html>

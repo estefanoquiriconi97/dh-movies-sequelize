@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dar de Alta Actor</title>
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/actors.css" />
+</head>
+
+<body class="container">
+    <figure class="logo">
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+    </figure>
+    <h1 class="heading">DAR DE ALTA ACTOR</h1>
+
+    <form action="/actors/create" method="post">
+        <label for="first_name">Nombre:</label>
+        <input type="text" id="first_name" name="first_name" required>
+
+        <label for="last_name">Apellido:</label>
+        <input type="text" id="last_name" name="last_name" required>
+
+        <label for="rating">Rating:</label>
+        <input type="text" id="rating" name="rating" required>
+        <div class="form-buttons">
+            <button type="submit">Guardar Actor</button>
+            <a href="/actors" class="back-button">Volver al listado de actores</a>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listado de Actores</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/actors.css" />
+  </head>
+
+  <body class="container">
+    <figure class="logo">
+      <img src="/img/logo-DH.png" alt="Logo Digital House" />
+    </figure>
+    <h1 class="heading">LISTADO DE ACTORES</h1>
+    <a href="/actors/create" class="create-new-link">Crear Nuevo Actor</a>
+
+    <ul class="list-container">
+      <% for(let i = 0; i < actors.length; i++) { %>
+      <li class="list-item">
+        <a href="/actors/detail/<%= actors[i].id %>" class="list-link">
+          <%= actors[i].first_name %> <%= actors[i].last_name %>
+        </a>
+        - Rating: <%= actors[i].rating %>
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>
