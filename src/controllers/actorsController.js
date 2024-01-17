@@ -19,20 +19,47 @@ const actorsController = {
     }
   },
 
-  create: (req, res) => {
+  createForm: (req, res) => {
     res.render("actors/create");
   },
 
-  save: async (req, res) => {
+  create: async (req, res) => {
     const { body } = req;
 
-    await db.Actors.create({
-      first_name: body.first_name,
-      last_name: body.last_name,
-      rating: body.rating,
-    });
+    try {
+      await db.Actors.create({
+        first_name: body.first_name,
+        last_name: body.last_name,
+        rating: body.rating,
+      });
+    } catch (error) {
+      res.send(error);
+    }
 
     res.redirect("/");
+  },
+
+  editForm: async (req, res) => {
+    try {
+      const actor = await db.Actors.findByPk(req.params.id);
+      res.render("actors/edit", { actor });
+    } catch (error) {
+      res.send(error);
+    }
+  },
+
+  edit: async (req, res) => {
+    const { body } = req;
+    try {
+      await db.Actors.update({
+        ...body,
+      },{
+        where : {id : req.params.id}
+      });
+      res.redirect('/actors');
+    } catch (error) {
+      res.send(error);
+    }
   },
 };
 

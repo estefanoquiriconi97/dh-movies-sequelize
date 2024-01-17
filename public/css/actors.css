@@ -152,13 +152,13 @@ body {
 }
 
 .create-new-link {
-  display: block;
-  margin-bottom: 15px;
-  text-decoration: none;
-  color: #E44D26;
-  font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: #E44D26;
+    font-weight: bold;
 }
 
 .create-new-link:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }

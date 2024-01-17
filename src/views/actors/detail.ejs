@@ -20,8 +20,9 @@
       <p>Rating: <%= actor.rating %></p>
       <p>Fecha de Creación: <%= actor.createdAt %></p>
       <p>Fecha de Actualización: <%= actor.updatedAt %></p>
-
-      <a href="/actors">Volver al listado de actores</a>
+        <a href="/actors/edit/<%= actor.id %>" class="back-button">Editar Actor</a>
+        <a href="/actors" class="back-button">Volver al listado de actores</a>
+    </div>
     </div>
     <% } else { %>
     <p>No se encontraron detalles para este actor.</p>

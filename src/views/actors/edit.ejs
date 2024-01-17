@@ -1,0 +1,37 @@
+<!-- EditActor.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Actor</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/actors.css" />
+</head>
+
+<body class="container">
+    <figure class="logo">
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+    </figure>
+    <h1 class="heading">EDITAR ACTOR</h1>
+
+    <form action="/actors/edit/<%= actor.id %>?_method=PUT" method="post">
+        <label for="first_name">Nombre:</label>
+        <input type="text" id="first_name" name="first_name" value="<%= actor.first_name %>" required>
+
+        <label for="last_name">Apellido:</label>
+        <input type="text" id="last_name" name="last_name" value="<%= actor.last_name %>" required>
+
+        <label for="rating">Rating:</label>
+        <input type="text" id="rating" name="rating" value="<%= actor.rating %>" required>
+
+        <div class="form-buttons">
+            <button type="submit">Guardar cambios</button>
+            <a href="/actors/detail/<%= actor.id %>" class="back-button">Volver</a>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,12 +1,15 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const actorsController = require('../controllers/actorsController')
+const actorsController = require("../controllers/actorsController");
 
-router.get('/', actorsController.list)
-router.get('/detail/:id', actorsController.detail)
-router.get('/create', actorsController.create)
+router.get("/", actorsController.list);
+router.get("/detail/:id", actorsController.detail);
+router.get("/create", actorsController.createForm);
+router.get("/edit/:id", actorsController.editForm);
 
-router.post('/create', actorsController.save);
+router.put("/edit/:id", actorsController.edit);
+
+router.post("/create", actorsController.create);
 
 module.exports = router;
