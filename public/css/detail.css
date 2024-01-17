@@ -1,0 +1,93 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.heading {
+    text-align: center;
+    color: #333;
+}
+
+.actor-details {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.actor-details h2 {
+    color: #333;
+}
+
+.actor-details p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.actor-details a.back-button {
+    margin-top: 15px;
+    text-decoration: none;
+    color: #E44D26;
+    font-weight: bold;
+}
+
+.actor-details a.back-button:hover {
+    text-decoration: underline;
+}
+
+.actor-details form {
+    margin-top: 15px;
+}
+
+.actor-details form a.back-button {
+    margin-top: 0;
+}
+
+.actor-details form button {
+    background-color: #E44D26;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.actor-details form button:hover {
+    background-color: #333;
+}
+
+
+.action-button {
+    background-color: #E44D26;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Para quitar la decoración de texto en los enlaces */
+    display: inline-block; /* Para que los enlaces se comporten como bloques en línea */
+    margin-right: 10px; /* Ajusta el margen entre los botones según sea necesario */
+}
+
+.action-button:hover {
+    background-color: #333;
+}

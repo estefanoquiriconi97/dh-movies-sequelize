@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detalles del Actor</title>
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/actors.css" />
+    <link rel="stylesheet" href="/css/detail.css" />
   </head>
 
   <body class="container">
@@ -20,14 +20,21 @@
       <p>Rating: <%= actor.rating %></p>
       <p>Fecha de Creación: <%= actor.createdAt %></p>
       <p>Fecha de Actualización: <%= actor.updatedAt %></p>
-        <a href="/actors/edit/<%= actor.id %>" class="back-button">Editar Actor</a>
-        <a href="/actors" class="back-button">Volver al listado de actores</a>
+      <div class="button-container">
+        <form action="/actors/delete/<%= actor.id %>?_method=DELETE" method="post">
+            <button class="action-button">Eliminar Actor</button>
+        </form>
+        <br>
+        <a href="/actors/edit/<%= actor.id %>" class="action-button">Editar Actor</a>
+        <br>
+        <br>
+        <a href="/actors" class="action-button">Volver al listado de actores</a>
     </div>
+    
     </div>
     <% } else { %>
     <p>No se encontraron detalles para este actor.</p>
     <a href="/actors">Volver al listado de actores</a>
     <% } %>
-
   </body>
 </html>

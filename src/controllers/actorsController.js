@@ -51,12 +51,27 @@ const actorsController = {
   edit: async (req, res) => {
     const { body } = req;
     try {
-      await db.Actors.update({
-        ...body,
-      },{
-        where : {id : req.params.id}
+      await db.Actors.update(
+        {
+          ...body,
+        },
+        {
+          where: { id: req.params.id },
+        }
+      );
+      res.redirect("/actors");
+    } catch (error) {
+      res.send(error);
+    }
+  },
+
+  delete: async (req, res) => {
+    try {
+      await db.Actors.destroy({
+        where: { id: req.params.id },
       });
-      res.redirect('/actors');
+
+      res.redirect("/actors");
     } catch (error) {
       res.send(error);
     }
