@@ -4,7 +4,9 @@ const Op = db.Sequelize.Op;
 const moviesController = {
   list: async (req, res) => {
     try {
-      const movies = await db.Movies.findAll();
+      const movies = await db.Movies.findAll({
+        include : [{association : "genres"}]
+      });
       res.render("moviesList", { movies });
     } catch (error) {
       res.send(error);
