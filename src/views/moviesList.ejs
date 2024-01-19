@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Listado de Películas</title>
-    <link rel='stylesheet' href='/css/style.css' />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <figure>
-        <a href="/">
-        <img src="/img/logo-DH.png" alt="Logo Digital House">
-    </a>
+      <a href="/">
+        <img src="/img/logo-DH.png" alt="Logo Digital House" />
+      </a>
     </figure>
     <h1>LISTADO DE PELÍCULAS</h1>
     <ul>
-        <% for( let i = 0; i < movies.length; i++ ) { %>
-        <li>
-            <a href="/movies/detail/<%= movies[i].id %>"><%= movies[i].title %> - <%= movies[i].genres ? movies[i].genres.name : 'Sin género' %></a>
-        </li>
-        <% } %>
-
+      <% for( let i = 0; i < movies.length; i++ ) { %>
+      <li>
+        <a href="/movies/detail/<%= movies[i].id %>"
+          ><%= movies[i].title %> - <%= movies[i].genres ? movies[i].genres.name
+          : 'Sin género' %>
+          <ul>
+            <% for (let j=0; j < movies[i].actors.length; j++) { %>
+              <li><%=movies[i].actors[j].first_name %></li>
+            <% } %>
+          </ul>
+        </a>
+      </li>
+      <% } %>
     </ul>
-</body>
-
+  </body>
 </html>

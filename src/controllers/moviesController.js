@@ -5,7 +5,7 @@ const moviesController = {
   list: async (req, res) => {
     try {
       const movies = await db.Movies.findAll({
-        include : [{association : "genres"}]
+        include : ["genres", "actors"]
       });
       res.render("moviesList", { movies });
     } catch (error) {

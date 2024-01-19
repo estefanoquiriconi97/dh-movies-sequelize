@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  return sequelize.define(
+  const Actor = sequelize.define(
     "Actors",
     {
       id: {
@@ -17,4 +17,16 @@ module.exports = (sequelize, DataTypes) => {
       underscored: true,
     }
   );
+
+  Actor.associate = function (models) {
+    Actor.belongsToMany(models.Movies, {
+      as: "movies",
+      through: "actor_movie",
+      foreignKey: "actor_id",
+      otherKey: "movies_id",
+      timestamps: false,
+    });
+  };
+
+  return Actor;
 };
