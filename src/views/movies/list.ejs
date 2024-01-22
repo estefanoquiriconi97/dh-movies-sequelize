@@ -23,14 +23,9 @@
     <ul>
       <% for( let i = 0; i < movies.length; i++ ) { %>
       <li>
-        <a href="/movies/detail/<%= movies[i].id %>"
+        <a class="link" href="/movies/detail/<%= movies[i].id %>"
           ><%= movies[i].title %> - <%= movies[i].genre ? movies[i].genre.name
           : 'Sin género' %>
-          <ul>
-            <% for (let j=0; j < movies[i].actors.length; j++) { %>
-              <li><%=movies[i].actors[j].first_name %></li>
-            <% } %>
-          </ul>
         </a>
       </li>
       <% } %>

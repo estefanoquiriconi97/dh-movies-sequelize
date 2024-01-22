@@ -22,13 +22,10 @@
       <p>RELEASE DATE: <%= movie.release_date %></p>
       <p>GENRE: <%= movie.genre.name %></p>
 
-      <form action="/movie/delete/<%= movie.id %>?_method=DELETE" method="post">
-        <button class="action-button">Eliminar</button>
-      </form>
+      <a href="/movies/edit/<%= movie.id %>" class="action-button">Editar</a>
       <br />
-      <a href="/movies/edit/<%= movie.id %>" class="action-button"
-        >Editar</a
-      >
+      <br />
+      <a href="/movies/delete/<%= movie.id %>" class="action-button">Delete</a>
       <br />
       <br />
       <a href="/movies" class="action-button">Movies</a>

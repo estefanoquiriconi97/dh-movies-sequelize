@@ -16,7 +16,7 @@ const moviesController = {
   detail: async (req, res) => {
     try {
       const movie = await db.Movies.findByPk(req.params.id, {
-        include : ["genre"]
+        include: ["genre"],
       });
       if (movie) {
         res.render("movies/detail", { movie });
@@ -111,6 +111,26 @@ const moviesController = {
       });
 
       res.redirect("/movies/detail/" + req.params.id);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
+  delete: async (req, res) => {
+    try {
+      const movie = await db.Movies.findByPk(req.params.id);
+      res.render("movies/delete", { movie });
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
+  processDelete: async (req, res) => {
+    try {
+      await db.Movies.destroy({
+        where: { id: req.params.id },
+      });
+      res.redirect("/movies");
     } catch (error) {
       console.error(error);
     }
