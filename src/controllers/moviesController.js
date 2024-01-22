@@ -7,7 +7,7 @@ const moviesController = {
       const movies = await db.Movies.findAll({
         include: ["genre", "actors"],
       });
-      res.render("moviesList", { movies });
+      res.render("movies/list", { movies });
     } catch (error) {
       console.error(error);
     }
@@ -17,7 +17,7 @@ const moviesController = {
     try {
       const movie = await db.Movies.findByPk(req.params.id);
       if (movie) {
-        res.render("moviesDetail", { movie });
+        res.render("movies/detail", { movie });
       } else {
         return res.send("<h1>No existe</h1>");
       }
@@ -32,7 +32,7 @@ const moviesController = {
         order: [["realease_date", "DESC"]],
         limit: 5,
       });
-      res.render("newestMovies", { movies });
+      res.render("movies/newest", { movies });
     } catch (error) {
       console.error(error);
     }
@@ -47,7 +47,7 @@ const moviesController = {
         ],
         limit: 5,
       });
-      res.render("recommendedMovies", { movies });
+      res.render("movies/recommended", { movies });
     } catch (error) {
       console.error(error);
     }
@@ -69,7 +69,7 @@ const moviesController = {
   add: async (req, res) => {
     try {
       const allGenres = await db.Genres.findAll();
-      res.render("moviesAdd", { allGenres });
+      res.render("movies/add", { allGenres });
     } catch (error) {
       console.error(error);
     }
@@ -93,7 +93,7 @@ const moviesController = {
 
       const movie = await db.Movies.findByPk(req.params.id);
       const allGenres = await db.Genres.findAll();
-      res.render("moviesEdit",{movie, allGenres})
+      res.render("movies/edit",{movie, allGenres})
       
     } catch (error) {
       console.error(error);

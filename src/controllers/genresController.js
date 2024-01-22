@@ -4,7 +4,7 @@ const genresController = {
   list: async (req, res) => {
     try {
       const genres = await db.Genres.findAll();
-      res.render("genresList", { genres });
+      res.render("genres/list", { genres });
     } catch (error) {
       res.send(error);
     }
@@ -13,7 +13,7 @@ const genresController = {
   detail: async (req, res) => {
     try {
       const genre = await db.Genres.findByPk(req.params.id);
-      res.render("genresDetail", { genre });
+      res.render("genres/detail", { genre });
     } catch (error) {
       res.send(error);
     }
