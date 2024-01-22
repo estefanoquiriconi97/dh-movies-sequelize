@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= movie.title %> </title>
-    <link rel='stylesheet' href='/css/style.css' />
-
-</head>
-<body>
-    <figure>
-        <a href="/">
-            <img src="/img/logo-DH.png" alt="Logo Digital House">
-        </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= movie.title %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/detail.css" />
+  </head>
+  <body class="container">
+    <figure class="logo">
+      <a href="/">
+        <img src="/img/logo-DH.png" alt="Logo Digital House" />
+      </a>
     </figure>
-    <h1><%= movie.title %> </h1>    
-    <br>
-    <p>RATING: <%= movie.rating %> </p>
-    <p>AWARDS: <%= movie.awards %> </p>
-    <p>LENGTH: <%= movie.length + ' min'%> </p>
-    <p>RELEASE DATE: <%= movie.release_date %> </p>
+    <h1 class="heading"><%= movie.title %></h1>
+    <div class="details">
+      <br />
+      <p>RATING: <%= movie.rating %></p>
+      <p>AWARDS: <%= movie.awards %></p>
+      <p>LENGTH: <%= movie.length + ' min'%></p>
+      <p>RELEASE DATE: <%= movie.release_date %></p>
 
-    <a href="/movies/edit/<%= movie.id %>">Editar</a>
-
-</body>
+      <form action="/movie/delete/<%= movie.id %>?_method=DELETE" method="post">
+        <button class="action-button">Eliminar</button>
+      </form>
+      <br />
+      <a href="/movies/edit/<%= movie.id %>" class="action-button"
+        >Editar</a
+      >
+      <br />
+      <br />
+      <a href="/movies" class="action-button">Movies</a>
+    </div>
+  </body>
 </html>

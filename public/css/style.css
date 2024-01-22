@@ -43,3 +43,17 @@ figure{
   margin: auto;
   width: 20%;
 }
+
+
+.link-index {
+  text-decoration: none; 
+  color: #007bff; 
+  font-weight: bold; 
+  margin-right: 15px; 
+  font-size: 16px; 
+}
+
+.link-index:hover {
+  text-decoration: underline; 
+  color: #0056b3;
+}

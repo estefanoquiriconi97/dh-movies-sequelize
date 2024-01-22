@@ -26,7 +26,7 @@ body {
     color: #333;
 }
 
-.actor-details {
+.details {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -34,35 +34,35 @@ body {
     margin: 20px 0;
 }
 
-.actor-details h2 {
+.details h2 {
     color: #333;
 }
 
-.actor-details p {
+.details p {
     margin: 10px 0;
     color: #555;
 }
 
-.actor-details a.back-button {
+.details a.back-button {
     margin-top: 15px;
     text-decoration: none;
     color: #E44D26;
     font-weight: bold;
 }
 
-.actor-details a.back-button:hover {
+.details a.back-button:hover {
     text-decoration: underline;
 }
 
-.actor-details form {
+.details form {
     margin-top: 15px;
 }
 
-.actor-details form a.back-button {
+.details form a.back-button {
     margin-top: 0;
 }
 
-.actor-details form button {
+.details form button {
     background-color: #E44D26;
     color: #fff;
     padding: 10px 15px;
@@ -71,7 +71,7 @@ body {
     cursor: pointer;
 }
 
-.actor-details form button:hover {
+.details form button:hover {
     background-color: #333;
 }
 
