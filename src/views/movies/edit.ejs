@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title class="titulo">Editar Película</title>
+    <title class="titulo">Edit movie</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -12,9 +12,9 @@
     <figure>
         <img src="/img/logo-DH.png" alt="Logo Digital House">
       </figure>
-    <h1 class="titulo">Película Editada:  <%= movie.title %></h1>
+    <h1 class="titulo">Edit Movie:  <%= movie.title %></h1>
     <section class="formulario">
-        <form action="/movies/update/<%= movie.id %>" method="POST">
+        <form action="/movies/edit/<%= movie.id %>?_method=PUT" method="POST">
             <label for="title">Title </label>
             <p><input type="text" name="title" id="" value="<%= movie.title %>" required></p>
             <label for="rating">Rating </label>
@@ -22,7 +22,7 @@
             <label for="awards">Awards </label>
             <p><input type="number" name="awards" id="" value="<%= movie.awards %>" required></p>
             <label for="release_date">Release date </label>
-            <p><input type="date" name="release_date" id="" value="<%= movie.release_date %> required"></p>
+            <p><input type="date" name="release_date" id="" value="<%= movie.release_date %>" required></p>
             <label for="length">Length </label>
             <p><input type="number" name="length" id="" value="<%= movie.length %>" required></p>
             <label for="genre_id">Genre </label>
@@ -35,9 +35,9 @@
             </p>
             
             <br>
-            <p> <button class="botonAgregar" type="submit">Actualizar</button>
+            <p> <button class="botonAgregar" type="submit">Update</button>
         
-            <a  class="botonVolver" href="/movies">Películas</a></p>
+            <a  class="botonVolver" href="/movies">Movies</a></p>
         </form>
     </section>
 </body>

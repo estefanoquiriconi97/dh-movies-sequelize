@@ -15,7 +15,9 @@ const moviesController = {
 
   detail: async (req, res) => {
     try {
-      const movie = await db.Movies.findByPk(req.params.id);
+      const movie = await db.Movies.findByPk(req.params.id, {
+        include : ["genre"]
+      });
       if (movie) {
         res.render("movies/detail", { movie });
       } else {
@@ -88,17 +90,31 @@ const moviesController = {
     }
   },
 
-  edit : async (req, res) => {
+  edit: async (req, res) => {
     try {
-
       const movie = await db.Movies.findByPk(req.params.id);
       const allGenres = await db.Genres.findAll();
-      res.render("movies/edit",{movie, allGenres})
-      
+      res.render("movies/edit", { movie, allGenres });
     } catch (error) {
       console.error(error);
     }
-  }
+  },
+
+  processEdit: async (req, res) => {
+    const newDataMovie = {
+      ...req.body,
+    };
+
+    try {
+      await db.Movies.update(newDataMovie, {
+        where: { id: req.params.id },
+      });
+
+      res.redirect("/movies/detail/" + req.params.id);
+    } catch (error) {
+      console.error(error);
+    }
+  },
 };
 
 module.exports = moviesController;

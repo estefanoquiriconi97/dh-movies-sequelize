@@ -14,4 +14,6 @@ router.post('/add', moviesController.processAdd);
 
 router.get('/edit/:id', moviesController.edit);
 
+router.put('/edit/:id', moviesController.processEdit);
+
 module.exports = router;
