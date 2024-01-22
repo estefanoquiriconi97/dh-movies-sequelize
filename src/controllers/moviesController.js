@@ -5,11 +5,11 @@ const moviesController = {
   list: async (req, res) => {
     try {
       const movies = await db.Movies.findAll({
-        include : ["genres", "actors"]
+        include: ["genre", "actors"],
       });
       res.render("moviesList", { movies });
     } catch (error) {
-      res.send(error);
+      console.error(error);
     }
   },
 
@@ -22,7 +22,7 @@ const moviesController = {
         return res.send("<h1>No existe</h1>");
       }
     } catch (error) {
-      res.send(error);
+      console.error(error);
     }
   },
 
@@ -34,7 +34,7 @@ const moviesController = {
       });
       res.render("newestMovies", { movies });
     } catch (error) {
-      res.send(error);
+      console.error(error);
     }
   },
 
@@ -49,7 +49,7 @@ const moviesController = {
       });
       res.render("recommendedMovies", { movies });
     } catch (error) {
-      res.send(error);
+      console.error(error);
     }
   },
 
@@ -62,27 +62,43 @@ const moviesController = {
       });
       res.json(movies);
     } catch (error) {
-      res.send(error);
+      console.error(error);
     }
   },
 
-  create: (req, res) => {
-    res.render("moviesCreate");
-  },
-
-  save: async (req, res) => {
-    const newMovie = {
-      title : req.body.title,
-      rating : req.body.rating,
-      awards : req.body.awards,
-      release_date : req.body.release_date,
-      length : req.body.length,
-      genre_id : req.body.genre_id,
+  add: async (req, res) => {
+    try {
+      const allGenres = await db.Genres.findAll();
+      res.render("moviesAdd", { allGenres });
+    } catch (error) {
+      console.error(error);
     }
-    await db.Movies.create(newMovie);
-
-    res.redirect('/');
   },
+
+  processAdd: async (req, res) => {
+    try {
+      const newMovie = {
+        ...req.body,
+      };
+      await db.Movies.create(newMovie);
+
+      res.redirect("/movies");
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
+  edit : async (req, res) => {
+    try {
+
+      const movie = await db.Movies.findByPk(req.params.id);
+      const allGenres = await db.Genres.findAll();
+      res.render("moviesEdit",{movie, allGenres})
+      
+    } catch (error) {
+      console.error(error);
+    }
+  }
 };
 
 module.exports = moviesController;

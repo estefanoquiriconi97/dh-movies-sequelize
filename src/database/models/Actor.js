@@ -23,7 +23,6 @@ module.exports = (sequelize, DataTypes) => {
       as: "movies",
       through: "actor_movie",
       foreignKey: "actor_id",
-      otherKey: "movies_id",
       timestamps: false,
     });
   };

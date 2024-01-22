@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Movie.associate = function (models) {
     Movie.belongsTo(models.Genres, {
-      as: "genres",
+      as: "genre",
       foreignKey: "genre_id",
     });
 
@@ -30,7 +30,6 @@ module.exports = (sequelize, DataTypes) => {
       as: "actors",
       through: "actor_movie",
       foreignKey: "movie_id",
-      otherKey: "actor_id",
       timestamps: false,
     });
   };

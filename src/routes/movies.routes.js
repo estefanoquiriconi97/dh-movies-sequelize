@@ -8,7 +8,10 @@ router.get("/recommended", moviesController.recommended);
 router.get("/detail/:id", moviesController.detail);
 router.get("/toy-story", moviesController.toyStoryMovies);
 
-router.get('/create', moviesController.create)
-router.post('/create', moviesController.save);
+
+router.get('/add', moviesController.add)
+router.post('/add', moviesController.processAdd);
+
+router.get('/edit/:id', moviesController.edit);
 
 module.exports = router;
