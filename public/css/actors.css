@@ -1,4 +1,4 @@
-/* list */
+
 body {
   font-family: "Arial", sans-serif;
   background-color: #f0f0f0;
@@ -49,14 +49,14 @@ body {
 }
 
 .list-link:hover {
-  color: #e44d26; /* Color de resaltado al pasar el ratón */
+  color: #e44d26; 
 }
 
 .list-description {
   margin: 0;
 }
 
-/* detail */
+
 
 .actor-details {
     background-color: #fff;
@@ -111,19 +111,6 @@ body {
   box-sizing: border-box;
 }
 
-.container form button {
-  background-color: #E44D26;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.container form button:hover {
-  background-color: #333;
-}
-
 .container a {
   display: block;
   margin-top: 15px;
@@ -139,26 +126,4 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.back-button {
-  text-decoration: none;
-  color: #E44D26;
-  font-weight: bold;
-}
-
-.back-button:hover {
-  text-decoration: underline;
-}
-
-.create-new-link {
-    display: block;
-    margin-bottom: 15px;
-    text-decoration: none;
-    color: #E44D26;
-    font-weight: bold;
-}
-
-.create-new-link:hover {
-    text-decoration: underline;
 }
