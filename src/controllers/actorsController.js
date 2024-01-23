@@ -12,7 +12,9 @@ const actorsController = {
 
   detail: async (req, res) => {
     try {
-      const actor = await db.Actors.findByPk(req.params.id);
+      const actor = await db.Actors.findByPk(req.params.id, {
+        include : ["movies"]
+      });
       res.render("actors/detail", { actor });
     } catch (error) {
       res.send(error);

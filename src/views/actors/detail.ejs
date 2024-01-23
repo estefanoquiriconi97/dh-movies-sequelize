@@ -11,30 +11,42 @@
   <body class="container">
     <figure class="logo">
       <a href="/">
-        <img src="/img/logo-DH.png" alt="Logo Digital House">
-    </a>
+        <img src="/img/logo-DH.png" alt="Logo Digital House" />
+      </a>
     </figure>
     <h1 class="heading">Actor detail</h1>
 
     <% if (actor) { %>
     <div class="details">
       <h2><%= actor.first_name %> <%= actor.last_name %></h2>
-      <p>Rating: <%= actor.rating %></p>
-      <div class="button-container">
-        <form action="/actors/delete/<%= actor.id %>?_method=DELETE" method="post">
-            <button class="action-button">Delete</button>
+      <p><strong>RATING:</strong> <%= actor.rating %></p>
+      <p><strong>MOVIES: </strong></p>
+      <ul>
+        <% actor.movies.forEach(movie => { %>
+          <li> - <%= movie.title %></li>
+          <% }) %>
+      </ul>
+
+      <br />
+      <div>
+        <a href="/actors/edit/<%= actor.id %>" class="btn btn-secondary"
+          >Edit</a
+        >
+        <a href="/actors" class="btn btn-secondary">Back</a>
+
+        <form
+          action="/actors/delete/<%= actor.id %>?_method=DELETE"
+          method="POST"
+        >
+         <button class="btn btn-danger" type="submit">Delete</button>
         </form>
-        <br>
-        <a href="/actors/edit/<%= actor.id %>" class="action-button">Edit</a>
-        <br>
-        <br>
-        <a href="/actors" class="action-button">Back</a>
-    </div>
-    
+      </div>
     </div>
     <% } else { %>
-    <p>No se encontraron detalles para este actor.</p>
-    <a href="/actors">Volver al listado de actores</a>
+    <br />
+    <h2>Actor not found</h2>
+    <br />
+    <a class="btn btn-secondary" href="/actors">Back</a>
     <% } %>
   </body>
 </html>
