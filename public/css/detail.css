@@ -22,7 +22,6 @@ body {
 }
 
 .heading {
-    text-align: center;
     color: #333;
 }
 
@@ -32,6 +31,7 @@ body {
     border-radius: 5px;
     padding: 20px;
     margin: 20px 0;
+    max-width: 500px;
 }
 
 .details h2 {
@@ -91,3 +91,5 @@ body {
 .action-button:hover {
     background-color: #333;
 }
+
+

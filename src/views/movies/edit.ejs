@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title class="titulo">Edit movie</title>
+    <title>Edit movie</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -12,8 +12,9 @@
     <figure>
         <img src="/img/logo-DH.png" alt="Logo Digital House">
       </figure>
-    <h1 class="titulo">Edit Movie:  <%= movie.title %></h1>
-    <section class="formulario">
+      <section class="form">
+        <h1 class="heading">Edit Movie:  <%= movie.title %></h1>
+        <br>
         <form action="/movies/edit/<%= movie.id %>?_method=PUT" method="POST">
             <label for="title">Title </label>
             <p><input type="text" name="title" id="" value="<%= movie.title %>" required></p>
@@ -35,9 +36,8 @@
             </p>
             
             <br>
-            <p> <button class="botonAgregar" type="submit">Update</button>
-        
-            <a  class="botonVolver" href="/movies">Movies</a></p>
+            <button class="btn btn-primary" type="submit">Save</button>
+            <a  class="btn btn-secondary" href="/movies">Back</a>
         </form>
     </section>
 </body>

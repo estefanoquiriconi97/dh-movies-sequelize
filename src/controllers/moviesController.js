@@ -16,7 +16,7 @@ const moviesController = {
   detail: async (req, res) => {
     try {
       const movie = await db.Movies.findByPk(req.params.id, {
-        include: ["genre"],
+        include: ["genre", "actors"],
       });
       if (movie) {
         res.render("movies/detail", { movie });

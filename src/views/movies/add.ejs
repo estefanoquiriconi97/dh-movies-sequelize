@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie add</title>
+    <title>Create movie</title>
     <link rel='stylesheet' href='/css/style.css' />
 </head>
 
@@ -12,9 +12,10 @@
     <figure>
         <img src="/img/logo-DH.png" alt="Logo Digital House">
       </figure>
-    <h1 class="titulo">Agregar Película</h1>
-    <br>
-    <section class="formulario">
+      <br>
+      <section class="form">
+        <h1>Create movie</h1>
+        <br>
         <form action="/movies/add" method="POST">
             <label for="title">Title </label>
             <p><input type="text" name="title" id="" required></p>
@@ -36,9 +37,9 @@
                 </select>
             </p>
             <br>
-            <p> <button class="botonAgregar" type="submit">Agregar</button>
+            <p> <button class="btn btn-primary" type="submit">Save</button>
             
-            <a  class="botonVolver" href="/movies">Movies</a></p>
+            <a  class="btn btn-secondary" href="/movies">Back</a></p>
         </form>
     </section>
     

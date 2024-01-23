@@ -15,8 +15,8 @@
     </figure>
     <h1>Movies</h1>    <br>
     <p>
-        <a class="botonAgregar" href="/movies/add">Create</a>
-        <a class="botonVolver" href="/">Home</a>
+        <a class="btn btn-primary" href="/movies/add">Create</a>
+        <a class="btn btn-secondary" href="/">Home</a>
 
     </p>
     <br>
@@ -24,8 +24,9 @@
       <% for( let i = 0; i < movies.length; i++ ) { %>
       <li>
         <a class="link" href="/movies/detail/<%= movies[i].id %>"
-          ><%= movies[i].title %> - <%= movies[i].genre ? movies[i].genre.name
-          : 'Sin género' %>
+          >
+          <h3> <%= movies[i].title %> - <%= movies[i].genre ? movies[i].genre.name
+            : 'Sin género' %></h3>
         </a>
       </li>
       <% } %>
