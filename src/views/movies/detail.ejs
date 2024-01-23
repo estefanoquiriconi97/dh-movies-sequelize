@@ -26,15 +26,18 @@
         <p><strong>AWARDS:</strong> <%= movie.awards %></p>
         <p><strong>LENGTH:</strong> <%= movie.length %> min</p>
         <p><strong>RELEASE DATE:</strong> <%= movie.release_date %></p>
-        <p><strong>GENRE:</strong> <%= movie.genre.name %></p>
+        <p>
+          <strong>GENRE:</strong> <%= movie.genre ? movie.genre.name :
+          'Sin género' %>
+        </p>
 
         <p><strong>ACTORS:</strong></p>
         <ul>
           <% movie.actors.forEach(actor => { %>
-          <li><%= actor.first_name %> <%= actor.last_name %></li>
+          <li>- <%= actor.first_name %> <%= actor.last_name %></li>
           <% }) %>
         </ul>
-        <br>
+        <br />
         <div>
           <a href="/movies/edit/<%= movie.id %>" class="btn btn-secondary"
             >Edit</a
