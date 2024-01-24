@@ -7,6 +7,8 @@ const indexRouter = require("./routes/index.routes");
 const moviesRoutes = require("./routes/movies.routes");
 const genresRoutes = require("./routes/genres.routes");
 const actorsRoutes = require("./routes/actors.routes");
+const seriesRoutes = require("./routes/series.routes");
+
 const app = express();
 
 // view engine setup
@@ -21,5 +23,6 @@ app.use("/", indexRouter);
 app.use("/movies", moviesRoutes);
 app.use("/genres", genresRoutes);
 app.use("/actors", actorsRoutes);
+app.use("/series", seriesRoutes);
 
 app.listen("3001", () => console.log("http://localhost:" + 3001));
