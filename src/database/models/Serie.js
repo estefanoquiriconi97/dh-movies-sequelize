@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Serie.associate = (models) => {
     Serie.belongsTo(models.Genres, {
-      as: "genres",
+      as: "genre",
       foreignKey: "genre_id",
     });
   };

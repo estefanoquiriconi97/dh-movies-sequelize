@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Series</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <figure>
+      <a href="/">
+        <img src="/img/logo-DH.png" alt="Logo Digital House" />
+      </a>
+    </figure>
+    <h1>Series</h1>
+    <br />
+    <p>
+      <a class="btn btn-secondary" href="/">Home</a>
+    </p>
+    <br />
+    <ul>
+      <% for( let i = 0; i < series.length; i++ ) { %>
+      <li>
+        <a class="link" href="/series/detail/<%= series[i].id %>">
+          <h3>
+            <%= series[i].title %> - <%= series[i].genre ? series[i].genre.name
+            : 'Sin género' %>
+          </h3>
+        </a>
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>
