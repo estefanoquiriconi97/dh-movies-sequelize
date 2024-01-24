@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= serie.title %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/detail.css" />
+  </head>
+
+  <body class="container">
+    <header>
+      <figure class="logo">
+        <a href="/">
+          <img src="/img/logo-DH.png" alt="Logo Digital House" />
+        </a>
+      </figure>
+    </header>
+
+    <main>
+      <h1 class="heading"><%= serie.title %></h1>
+
+      <section class="details">
+        <br />
+        <p><strong>RELEASE_DATE:</strong> <%= serie.release_date %></p>
+        <p><strong>END_DATE:</strong> <%= serie.end_date %></p>
+        <p>
+          <strong>GENRE:</strong> <%= serie.genre ? serie.genre.name :
+          'Sin género' %>
+        </p>
+        <br />
+        <div>
+          <a href="/series" class="btn btn-secondary">Back</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
